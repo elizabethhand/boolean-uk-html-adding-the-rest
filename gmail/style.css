@@ -1,0 +1,93 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container {
+  display: grid;
+  text-align: center;
+  height: 100vh;
+  grid-template:
+    "header header header header" 50px
+    "inboxes emails settings sidebar" 1fr /
+    1fr 4fr 1fr 15px;
+}
+
+.header {
+  grid-area: header;
+  background-color: paleturquoise;
+
+  display: grid;
+  grid-template-columns: 200px 2fr 220px;
+}
+
+.logo,
+.search,
+.settings {
+  border: solid;
+}
+
+.left-menu {
+  grid-area: inboxes;
+  background-color: palegreen;
+
+  display: grid;
+  grid-template-rows: 30px 230px 50px 100px;
+}
+
+.compose,
+.inboxes,
+.meet,
+.chat {
+  border: solid;
+}
+
+.inboxes {
+  display: grid;
+}
+
+.emails {
+  grid-area: emails;
+  background-color: palevioletred;
+}
+
+.right-bar {
+  grid-area: settings;
+  background-color: palegoldenrod;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: turquoise;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    grid-template:
+      "header header header" 50px
+      "inboxes emails settings" 1fr /
+      1fr 4fr 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    grid-template:
+      "header header" 50px
+      "inboxes emails" 1fr /
+      1fr 4fr;
+  }
+
+  .settings {
+    display: none;
+  }
+}
